@@ -1,0 +1,11 @@
+<%=form_for Order.new(quantity: 1) do |f| %>
+
+  <%= f.label :name %>
+  <%= collection_select :order, :product_id, Product.all, :id, :name %>
+
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity, min: 1 %>
+
+  <%= f.submit %>
+
+<%end%>

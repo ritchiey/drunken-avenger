@@ -1,0 +1,11 @@
+<h2>Orders</h2>
+<ul>
+  <% Order.find_each do |order| %>
+    <li>
+  <%= order.quantity %>
+  <%= order.product.name %>
+  </li>
+<% end %>
+</ul>
+
+<%= render 'form' %>
