@@ -1,7 +1,11 @@
 class OrdersController < ApplicationController
-  def new
+
+  def index
   end
 
-  def show
+  def create
+    Order.create(params.require(:order).permit(:product_id, :quantity))
+    redirect_to :action => :index
   end
+
 end

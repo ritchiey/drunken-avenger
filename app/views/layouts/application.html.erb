@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hi</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+<title>Buy Something!</title>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
 </head>
 <body>
+<div class="panel">
+  <table>
+    <h2>Stock</h2>
+    <tr>
+      <td>Name</td>
+      <td>Stock Level</td>
+      <td>Min Stock Level</td>
+    </tr>
+    <% Product.find_each do |product| %>
+    <tr>
+      <td><%=product.name%></td>
+      <td><%=product.stock_level%></td>
+      <td><%=product.min_stock_level%></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+<div class='panel'>
+  <h2>Notifications</h2>
+  <ul>
+    <% Notification.find_each do |n| %>
+      <li><%=n.message %></li>
+  <% end %>
+  </ul>
+</div>
+
 
 <%= yield %>
 

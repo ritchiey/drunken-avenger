@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20140407075557) do
 
   create_table "products", force: true do |t|
     t.string   "name"
-    t.string   "min_stock_level"
-    t.string   "stock_level"
+    t.integer  "min_stock_level"
+    t.integer  "stock_level"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

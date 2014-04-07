@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+{
+  "Fish" => [20, 10],
+  "Hamburger" => [80, 20],
+  "Fizzy Drink" => [100, 50]
+}.each do |name, stock|
+  Product.where(name: name).first_or_create(
+    name: name,
+    stock_level: stock.first,
+    min_stock_level: stock.last
+  )
+end
