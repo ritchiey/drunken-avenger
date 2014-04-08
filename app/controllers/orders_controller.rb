@@ -4,8 +4,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    Order.create(params.require(:order).permit(:product_id, :quantity))
+    Order.create(order_params)
     redirect_to :action => :index
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:product_id, :quantity)
   end
 
 end
